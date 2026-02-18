@@ -1,4 +1,5 @@
 class TennisGame1:
+    SCORE_NAMES = {0:"Love", 1:"Fifteen", 2:"Thirty", 3:"Forty"}
 
     # Inicializador de clase.
     def __init__(self, player1_name, player2_name):
@@ -25,11 +26,12 @@ class TennisGame1:
         
         # Caso 1: si las puntuaciones son iguales.
         if self.p1points == self.p2points:
-            game_scoreboard = {
-                0: "Love-All",
-                1: "Fifteen-All",
-                2: "Thirty-All",
-            }.get(self.p1points, "Deuce") # Para cualquier valor mayor que 3 devuelve "Deuce".
+            if self.p1points < 3:
+                game_scoreboard = f"{self.SCORE_NAMES[self.p1points]}-All"
+                return game_scoreboard
+            game_scoreboard = "Deuce"
+            return game_scoreboard
+            
         
         
         # Caso 2: victoria o ventaja.
