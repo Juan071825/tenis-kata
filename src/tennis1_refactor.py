@@ -45,21 +45,8 @@ class TennisGame1:
             return "Win for player2"
 
 
-
         
         # Caso 3: marcador dónde uno va ganando pero no tiene ventaja.
         
         else:
-            for i in range(1, 3):
-                if i == 1:
-                    temporal_game_score = self.p1points
-                else:
-                    game_scoreboard += "-"
-                    temporal_game_score = self.p2points
-                game_scoreboard += {
-                    0: "Love",
-                    1: "Fifteen",
-                    2: "Thirty",
-                    3: "Forty",
-                }[temporal_game_score]
-        return game_scoreboard
+            return f"{self.SCORE_NAMES[self.p1points]}-{self.SCORE_NAMES[self.p2points]}"
