@@ -23,28 +23,29 @@ class TennisGame1:
     def score(self):
         game_scoreboard = ""
         temporal_game_score = 0
+        GAME_POINT = 4
         
         # Caso 1: si las puntuaciones son iguales.
         if self.p1points == self.p2points:
             if self.p1points < 3:
-                game_scoreboard = f"{self.SCORE_NAMES[self.p1points]}-All"
-                return game_scoreboard
-            game_scoreboard = "Deuce"
-            return game_scoreboard
+                return f"{self.SCORE_NAMES[self.p1points]}-All"
+            return "Deuce"
             
         
         
         # Caso 2: victoria o ventaja.
-        elif self.p1points >= 4 or self.p2points >= 4:
-            minus_result = self.p1points - self.p2points
-            if minus_result == 1:
-                game_scoreboard = "Advantage player1"
-            elif minus_result == -1:
-                game_scoreboard = "Advantage player2"
-            elif minus_result >= 2:
-                game_scoreboard = "Win for player1"
-            else:
-                game_scoreboard = "Win for player2"
+        elif self.p1points >= GAME_POINT or self.p2points >= GAME_POINT:
+            point_difference = self.p1points - self.p2points
+            if point_difference == 1: 
+                return "Advantage player1" 
+            if point_difference == -1: 
+                return "Advantage player2" 
+            if point_difference >= 2: 
+                return "Win for player1" 
+            return "Win for player2"
+
+
+
         
         # Caso 3: marcador dónde uno va ganando pero no tiene ventaja.
         
