@@ -19,7 +19,7 @@ class TennisGame1:
                 0: "Love-All",
                 1: "Fifteen-All",
                 2: "Thirty-All",
-            }.get(self.p1points, "Deuce")
+            }.get(self.p1points, "Deuce") # Para cualquier valor mayor que 3 devuelve "Deuce".
         elif self.p1points >= 4 or self.p2points >= 4:
             minus_result = self.p1points - self.p2points
             if minus_result == 1:
